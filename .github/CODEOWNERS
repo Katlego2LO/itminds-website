@@ -1,0 +1,5 @@
+# Add your GitHub username (and the project lead's) before enabling "Require review from Code Owners".
+# Example:
+# *            @your-username
+# /supabase/   @your-username
+# /.github/    @your-username
