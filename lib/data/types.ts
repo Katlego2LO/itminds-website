@@ -12,6 +12,8 @@ export interface Programme {
   entryRequirements: string | null;
   summary: string | null;
   aiIntegrated: boolean;
+  curriculum?: string[];
+  outcomes?: string[];
 }
 
 export interface Faculty {
@@ -30,4 +32,5 @@ export interface TrainingCourse {
   deliveryMode: string | null;
   summary: string | null;
   partner: boolean;
+  outcomes?: string[];
 }

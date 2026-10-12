@@ -153,3 +153,12 @@ export const supportServices = [
   },
   { name: "Counselling & Wellness", description: "Confidential support for your wellbeing." },
 ];
+
+/**
+ * Programmes that overlap with a short course (spec 3.3). Each side links to the
+ * other and states which one is the accredited qualification.
+ */
+export const programmesWithShortCourse = new Set([
+  "ai-and-machine-learning-fundamentals",
+  "ai-prompt-engineering",
+]);

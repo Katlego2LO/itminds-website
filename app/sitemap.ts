@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about/accreditation",
     "/about/student-support",
     "/faculties",
+    "/programmes",
     "/skills-training",
     "/skills-training/ai-and-emerging-tech",
     "/skills-training/partnership",

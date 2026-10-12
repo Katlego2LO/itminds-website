@@ -22,6 +22,7 @@ export function Footer() {
           title="Study"
           links={[
             { label: "Faculties", href: "/faculties" },
+            { label: "All programmes", href: "/programmes" },
             { label: "Admissions", href: "/admissions" },
             { label: "Skills & Training", href: "/skills-training" },
             { label: "Business School", href: "/business-school" },
