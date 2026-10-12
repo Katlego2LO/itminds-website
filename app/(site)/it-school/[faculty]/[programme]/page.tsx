@@ -39,8 +39,8 @@ export default async function ProgrammePage({ params }: Props) {
         lead={programme.summary ?? undefined}
         crumbs={[
           { label: "Home", href: "/" },
-          { label: "Faculties", href: "/faculties" },
-          { label: faculty.name, href: `/faculties/${faculty.slug}` },
+          { label: "IT-school", href: "/it-school" },
+          { label: faculty.name, href: `/it-school/${faculty.slug}` },
           { label: programme.name },
         ]}
       />

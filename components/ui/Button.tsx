@@ -5,7 +5,7 @@ const variants = {
   primary: "bg-brand-700 text-white hover:bg-brand-800 border-transparent",
   secondary: "bg-white text-slate-brand border-line hover:border-slate-brand",
   dark: "bg-slate-brand text-white hover:bg-ink border-transparent",
-  elearn: "bg-elearn text-white hover:bg-elearn-hover border-transparent",
+  elearn: "bg-[#3F9A12] text-white hover:bg-[#2E7A0D] border-transparent",
   ghost: "bg-transparent text-brand-700 hover:bg-brand-50 border-transparent",
 } as const;
 

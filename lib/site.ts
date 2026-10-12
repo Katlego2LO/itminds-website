@@ -25,7 +25,7 @@ export const primaryNav = [
       { label: "Contact", href: "/contact" },
     ],
   },
-  { label: "Faculties", href: "/faculties" },
+  { label: "IT School", href: "/it-school" },
   { label: "Skills & Training", href: "/skills-training" },
   { label: "Business School", href: "/business-school" },
   {

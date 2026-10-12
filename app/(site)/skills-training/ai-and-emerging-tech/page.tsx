@@ -28,14 +28,14 @@ export default function AiEmergingTechPage() {
             Some topics are also offered as NQF-aligned programmes, for example{" "}
             <Link
               className="underline"
-              href="/faculties/data-ai/ai-and-machine-learning-fundamentals"
+              href="it-school/data-ai/ai-and-machine-learning-fundamentals"
             >
               AI & Machine Learning Fundamentals
             </Link>{" "}
             and{" "}
             <Link
               className="underline"
-              href="/faculties/emerging-tech-innovation/ai-prompt-engineering"
+              href="/it-school/emerging-tech-innovation/ai-prompt-engineering"
             >
               AI Prompt Engineering
             </Link>

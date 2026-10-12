@@ -21,7 +21,7 @@ export function Footer() {
         <FooterList
           title="Study"
           links={[
-            { label: "Faculties", href: "/faculties" },
+            { label: "Faculties", href: "/it-school" },
             { label: "Admissions", href: "/admissions" },
             { label: "Skills & Training", href: "/skills-training" },
             { label: "Business School", href: "/business-school" },
