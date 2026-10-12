@@ -27,7 +27,7 @@ export function Hero() {
             core of every programme.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/faculties" size="lg">
+            <ButtonLink href="it-school" size="lg">
               Explore programmes <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
             </ButtonLink>
             <ButtonLink href="/skills-training" variant="secondary" size="lg">

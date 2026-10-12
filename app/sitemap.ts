@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about/governance",
     "/about/accreditation",
     "/about/student-support",
-    "/faculties",
+    "/it-school",
     "/skills-training",
     "/skills-training/ai-and-emerging-tech",
     "/skills-training/partnership",
@@ -24,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const paths = [
     ...fixed,
-    ...faculties.map((f) => `/faculties/${f.slug}`),
-    ...programmes.map((p) => `/faculties/${p.facultySlug}/${p.slug}`),
+    ...faculties.map((f) => `/it-school/${f.slug}`),
+    ...programmes.map((p) => `/it-school/${p.facultySlug}/${p.slug}`),
     ...trainingCourses.map((c) => `/skills-training/corporate-training/${c.slug}`),
   ];
   return paths.map((p) => ({ url: `${site.url}${p}`, lastModified: new Date() }));

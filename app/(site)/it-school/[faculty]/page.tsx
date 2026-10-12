@@ -30,7 +30,7 @@ export default async function FacultyPage({ params }: Props) {
         lead={faculty.summary}
         crumbs={[
           { label: "Home", href: "/" },
-          { label: "Faculties", href: "/faculties" },
+          { label: "Faculties", href: "/it-school" },
           { label: faculty.name },
         ]}
       />
@@ -44,7 +44,7 @@ export default async function FacultyPage({ params }: Props) {
                 .map((p) => (
                   <li key={p.slug}>
                     <Link
-                      href={`/faculties/${slug}/${p.slug}`}
+                      href={`/it-school/${slug}/${p.slug}`}
                       className="flex items-center justify-between gap-4 p-5 transition-colors duration-180 hover:bg-surface-warm"
                     >
                       <span className="font-display text-lg font-medium text-slate-brand">

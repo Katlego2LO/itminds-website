@@ -21,7 +21,7 @@ export async function FacultyCards() {
         return (
           <li key={f.slug}>
             <Link
-              href={`/faculties/${f.slug}`}
+              href={`/it-school/${f.slug}`}
               className="group relative flex h-full flex-col overflow-hidden rounded-card border border-line bg-white p-6 pt-7 shadow-card transition duration-180 hover:-translate-y-0.5 hover:border-slate-brand/30"
             >
               <span className={`absolute inset-x-0 top-0 h-1 ${accentBg[f.accent]}`} aria-hidden />

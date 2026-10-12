@@ -6,7 +6,7 @@ const paths = [
   {
     title: "Study",
     text: "Accredited programmes across six faculties.",
-    href: "/faculties",
+    href: "/it-school",
     Icon: GraduationCap,
   },
   {
