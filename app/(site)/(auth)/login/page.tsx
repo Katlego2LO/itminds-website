@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { AuthForm } from "@/components/auth/AuthForm";
 import { signIn } from "@/lib/auth-actions";
@@ -25,6 +26,11 @@ export default async function LoginPage({
           </p>
         )}
         <AuthForm mode="login" action={signIn} next={sp.next ? safeNext(sp.next) : undefined} />
+                <p className="mt-4 text-center text-sm">
+          <Link href="/forgot-password" className="text-brand-700 underline">
+            Forgot your password?
+          </Link>
+        </p>
       </div>
     </div>
   );
