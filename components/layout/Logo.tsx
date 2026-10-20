@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 /**
- * Horizontal lock-up: mark + live text (previous style requested by client).
+ * Header lock-up: small mark + IT MINDS / Institute text
  */
 export function Logo({ light = false }: { light?: boolean }) {
   return (
