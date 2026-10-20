@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { Button } from "@/components/ui/Button";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import type { AuthState } from "@/lib/auth-actions";
 
 type Action = (state: AuthState, formData: FormData) => Promise<AuthState>;
@@ -79,24 +80,13 @@ export function ResetPasswordForm({ action }: { action: Action }) {
   const fe = state.fieldErrors ?? {};
   return (
     <form action={formAction} noValidate className="space-y-5">
+      
       <Field label="New password" error={fe.password} hint="At least 8 characters.">
-        <input
-          name="password"
-          type="password"
-          autoComplete="new-password"
-          required
-          className="field"
-        />
-      </Field>
-      <Field label="Confirm new password" error={fe.confirm}>
-        <input
-          name="confirm"
-          type="password"
-          autoComplete="new-password"
-          required
-          className="field"
-        />
-      </Field>
+  <PasswordInput name="password" autoComplete="new-password" required />
+</Field>
+<Field label="Confirm new password" error={fe.confirm}>
+  <PasswordInput name="confirm" autoComplete="new-password" required />
+</Field>
       <Messages state={state} />
       <Button type="submit" className="w-full" disabled={pending}>
         {pending ? "Please wait" : "Save new password"}
