@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { useFormStatus } from "react-dom";
 import {
   updateDisplayName,
@@ -64,32 +65,29 @@ export function PasswordForm() {
   return (
     <form action={action} className="space-y-4">
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-slate-brand">
-          New password
-        </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          required
-          autoComplete="new-password"
-          className="mt-1.5 w-full max-w-md rounded-lg border border-line bg-white px-3 py-2 text-[0.95rem] outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="confirm" className="block text-sm font-medium text-slate-brand">
-          Confirm new password
-        </label>
-        <input
-          id="confirm"
-          name="confirm"
-          type="password"
-          required
-          autoComplete="new-password"
-          className="mt-1.5 w-full max-w-md rounded-lg border border-line bg-white px-3 py-2 text-[0.95rem] outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-100"
-        />
-      </div>
+  <label htmlFor="password" className="block text-sm font-medium text-slate-brand">
+    New password
+  </label>
+  <PasswordInput
+    id="password"
+    name="password"
+    autoComplete="new-password"
+    required
+    className="mt-1.5 w-full max-w-md"
+  />
+</div>
+<div>
+  <label htmlFor="confirm" className="block text-sm font-medium text-slate-brand">
+    Confirm new password
+  </label>
+  <PasswordInput
+    id="confirm"
+    name="confirm"
+    autoComplete="new-password"
+    required
+    className="mt-1.5 w-full max-w-md"
+  />
+</div>
 
       {state.message && (
         <p

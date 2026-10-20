@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { Button } from "@/components/ui/Button";
+import { PasswordInput } from "@/components/ui/PasswordInput";   
 import type { AuthState } from "@/lib/auth-actions";
 
 interface Props {
@@ -28,18 +29,16 @@ export function AuthForm({ mode, action, next }: Props) {
         <input name="email" type="email" autoComplete="email" required className="field" />
       </Field>
       <Field
-        label="Password"
-        error={fe.password}
-        hint={signup ? "At least 8 characters." : undefined}
-      >
-        <input
-          name="password"
-          type="password"
-          autoComplete={signup ? "new-password" : "current-password"}
-          required
-          className="field"
-        />
-      </Field>
+  label="Password"
+  error={fe.password}
+  hint={signup ? "At least 8 characters." : undefined}
+>
+  <PasswordInput
+    name="password"
+    autoComplete={signup ? "new-password" : "current-password"}
+    required
+  />
+</Field>
 
       {state.error && (
         <p
