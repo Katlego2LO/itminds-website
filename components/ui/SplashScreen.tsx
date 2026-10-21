@@ -23,8 +23,8 @@ export function SplashScreen() {
       return;
     }
 
-    const minTimer = setTimeout(() => setFadeOut(true), 1200);
-    const removeTimer = setTimeout(() => setVisible(false), 1800);
+    const minTimer = setTimeout(() => setFadeOut(true), 2800);
+    const removeTimer = setTimeout(() => setVisible(false), 3400);
     return () => {
       clearTimeout(minTimer);
       clearTimeout(removeTimer);
@@ -47,7 +47,7 @@ export function SplashScreen() {
           width={900}
           height={976}
           priority
-          className="h-20 w-auto md:h-24"
+          className="h-60 max-h-[55vh] w-auto md:h-96"
         />
         <div className="mt-8 h-1 w-24 overflow-hidden rounded-full bg-neutral-100">
           <div className="h-full w-full origin-left animate-progress rounded-full bg-brand-600" />
