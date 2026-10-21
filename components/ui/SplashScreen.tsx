@@ -3,21 +3,28 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+const SEEN_KEY = "itminds-splash-seen";
+
 export function SplashScreen() {
   const [visible, setVisible] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Minimum time the splash is shown (feels intentional)
-    const minTimer = setTimeout(() => {
-      setFadeOut(true);
-    }, 1200);
-
-    // Remove from DOM after fade finishes
-    const removeTimer = setTimeout(() => {
+    // Show the splash once per browser session, not on every page load.
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem(SEEN_KEY) === "1";
+      sessionStorage.setItem(SEEN_KEY, "1");
+    } catch {
+      // Storage can be blocked; fall back to showing it.
+    }
+    if (seen) {
       setVisible(false);
-    }, 1800);
+      return;
+    }
 
+    const minTimer = setTimeout(() => setFadeOut(true), 1200);
+    const removeTimer = setTimeout(() => setVisible(false), 1800);
     return () => {
       clearTimeout(minTimer);
       clearTimeout(removeTimer);
@@ -29,16 +36,16 @@ export function SplashScreen() {
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ${
-        fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
+        fadeOut ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       aria-hidden={!fadeOut}
     >
-      <div className="flex flex-col items-center animate-splash">
+      <div className="flex animate-splash flex-col items-center">
         <Image
           src="/brand/logo-full.png"
           alt="IT Minds Institute"
-          width={280}
-          height={120}
+          width={900}
+          height={976}
           priority
           className="h-20 w-auto md:h-24"
         />
