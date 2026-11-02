@@ -1,42 +1,45 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader, Section } from "@/components/ui/Section";
-import { ButtonLink } from "@/components/ui/Button";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { EnquiryForm } from "@/components/sections/EnquiryForm";
+import { site } from "@/lib/site";
+import { getContactInfo } from "@/lib/data/settings";
 
-export const metadata: Metadata = { title: "E-Learning" };
+export const metadata: Metadata = { title: "Contact" };
 
-// Gateway page. Whether this opens in a new tab or redirects is an open client decision (spec 9, item 6).
-export default function ELearningPage() {
+export default async function ContactPage() {
+  const contact = await getContactInfo();
+
   return (
     <>
       <PageHeader
-        eyebrow="E-Learning"
-        title="Study online, on your schedule"
-        lead="Sign in to continue your courses, pick up where you left off and track your progress."
-        crumbs={[{ label: "Home", href: "/" }, { label: "E-Learning" }]}
+        eyebrow="Contact"
+        title="Get in touch"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
       <Section>
-        <div className="flex flex-wrap items-center gap-4">
-          <ButtonLink href="/login" size="lg">
-            Sign in
-          </ButtonLink>
-          <ButtonLink href="/signup" variant="secondary" size="lg">
-            Create an account
-          </ButtonLink>
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="space-y-2 text-ink-muted">
+            <p>
+              Email:{" "}
+              <a className="text-brand-700 underline" href={`mailto:${contact.email}`}>
+                {contact.email}
+              </a>
+            </p>
+            {contact.phone && (
+              <p>
+                Phone:{" "}
+                <a
+                  className="text-brand-700 underline"
+                  href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}
+                >
+                  {contact.phone}
+                </a>
+              </p>
+            )}
+            <p>QCTO Skills Development Provider, Accreditation No. {site.accreditation.qcto}</p>
+          </div>
+          <EnquiryForm type="general" />
         </div>
-        {!isSupabaseConfigured && (
-          <p className="mt-6 text-sm text-ink-subtle">
-            Accounts are not connected in this environment.
-          </p>
-        )}
-        <p className="mt-10 text-sm text-ink-muted">
-          Not a student yet?{" "}
-          <Link href="/admissions" className="underline">
-            See how to apply
-          </Link>
-          .
-        </p>
       </Section>
     </>
   );

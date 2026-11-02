@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SplashScreen } from "@/components/ui/SplashScreen";
+export const revalidate = 60;
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
