@@ -37,6 +37,7 @@ export function Footer() {
             { label: "News & Events", href: "/news" },
             { label: "E-Learning", href: "/e-learning" },
             { label: "Sign in", href: "/login" },
+            { label: "FAQs", href: "/faq" },
             { label: site.contact.email, href: `mailto:${site.contact.email}` },
           ]}
         />
