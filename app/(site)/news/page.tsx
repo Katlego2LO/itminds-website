@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, Section } from "@/components/ui/Section";
 import { formatNewsDate, getNewsPosts } from "@/lib/data/news";
+import { UpcomingEvents } from "@/components/sections/UpcomingEvents";
 
 export const metadata: Metadata = {
   title: "News & Events",
@@ -21,6 +22,7 @@ export default async function NewsPage() {
         title="Latest from the institute"
         crumbs={[{ label: "Home", href: "/" }, { label: "News & Events" }]}
       />
+            <UpcomingEvents />
       <Section>
         {posts.length === 0 ? (
           <div className="max-w-xl rounded-card border border-line bg-white p-8">

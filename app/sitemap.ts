@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/admissions",
     "/news",
     "/contact",
+    "/faq",
     "/e-learning",
     "/privacy",
   ];

@@ -4,10 +4,14 @@ import { PageHeader, Section, SectionHeading } from "@/components/ui/Section";
 import { CycleSection } from "@/components/sections/CycleSection";
 import { AccreditationStrip } from "@/components/sections/AccreditationStrip";
 import { values } from "@/lib/data/content";
+import { TeamPartners } from "@/components/sections/TeamPartners";
+
+export const revalidate = 60;
+
 
 export const metadata: Metadata = { title: "About" };
 
-export default function AboutPage() {
+export default async function AboutPage() {
   return (
     <>
       <PageHeader
@@ -61,6 +65,7 @@ export default function AboutPage() {
           </Link>
         </p>
       </Section>
+      <TeamPartners />
     </>
   );
 }
