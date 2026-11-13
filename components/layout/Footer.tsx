@@ -67,16 +67,7 @@ export async function Footer() {
           title="Institute"
           links={primaryNav[0].children.map((c) => ({ label: c.label, href: c.href }))}
         />
-        <FooterList
-          title="Connect"
-          links={[
-            { label: "News & Events", href: "/news" },
-            { label: "E-Learning", href: "/e-learning" },
-            { label: "Sign in", href: "/login" },
-            { label: "FAQs", href: "/faq" },
-            { label: site.contact.email, href: `mailto:${site.contact.email}` },
-          ]}
-        />
+        <FooterList title="Connect" links={connect} />
       </div>
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-3 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
