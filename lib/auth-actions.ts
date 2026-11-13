@@ -54,7 +54,10 @@ export async function signUp(_prev: AuthState, formData: FormData): Promise<Auth
     return {
       error: "We could not create the account. Try again or sign in if you already have one.",
     };
-  return { notice: "Check your email. We sent a link to confirm your address." };
+  return {
+    notice:
+      "Check your email to confirm your address. Your account then needs approval from an administrator. We will email you when you are approved.",
+  };
 }
 
 export async function signOut() {

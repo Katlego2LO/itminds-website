@@ -46,10 +46,24 @@ export async function POST(request: NextRequest) {
   const data = { ...parsed.data } as Partial<typeof parsed.data>;
   delete data.consent;
   const supabase = createClient(url, key, { auth: { persistSession: false } });
+    // Durable limit: at most 3 enquiries per email address every 10 minutes.
+  const since = new Date(Date.now() - 10 * 60 * 1000).toISOString();
+  const { count } = await supabase
+    .from("enquiries")
+    .select("id", { count: "exact", head: true })
+    .eq("email", data.email ?? "")
+    .gte("created_at", since);
+  if ((count ?? 0) >= 3) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 },
+    );
+  }
   const { error } = await supabase.from("enquiries").insert({
     ...data,
     phone: data.phone || null,
     organisation: data.organisation || null,
+        consent_at: new Date().toISOString(),
     source_page: typeof body.sourcePage === "string" ? body.sourcePage.slice(0, 200) : null,
   });
   if (error)

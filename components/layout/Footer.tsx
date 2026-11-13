@@ -1,8 +1,28 @@
 import Link from "next/link";
 import { primaryNav, site } from "@/lib/site";
 import { Logo } from "./Logo";
+import { getContactInfo } from "@/lib/data/settings";
 
-export function Footer() {
+export async function Footer() {
+  const contact = await getContactInfo();
+
+  const connect = [
+    { label: "News & Events", href: "/news" },
+    { label: "E-Learning", href: "/e-learning" },
+    { label: "Sign in", href: "/login" },
+    { label: "FAQs", href: "/faq" },
+    { label: contact.email, href: `mailto:${contact.email}` },
+    ...(contact.phone
+      ? [{ label: contact.phone, href: `tel:${contact.phone.replace(/[^+\d]/g, "")}` }]
+      : []),
+  ];
+
+  const socials = [
+    { label: "Facebook", href: contact.facebook },
+    { label: "LinkedIn", href: contact.linkedin },
+    { label: "Instagram", href: contact.instagram },
+  ].filter((s) => /^https?:\/\//i.test(s.href));
+
   return (
     <footer className="bg-slate-brand text-white/80">
       <div className="container-page grid gap-12 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
@@ -16,6 +36,22 @@ export function Footer() {
             <br />
             Accreditation No. {site.accreditation.qcto}
           </p>
+          {socials.length > 0 && (
+            <ul className="mt-5 flex gap-4 text-sm">
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <FooterList
@@ -44,7 +80,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-3 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} IT Minds Institute. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} IT Minds Institute. All rights reserved.</p>
           <ul className="flex gap-5">
             <li>
               <Link href="/privacy" className="hover:text-white">
